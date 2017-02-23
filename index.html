@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>Ambernet</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" type="text/css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Lato:300|Montserrat:700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.7333;
+            letter-spacing: 0.02em;
+            color: #4d4d4d;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #0d0d0d;
+        }
+        h1 {
+            text-align: center;
+            font-size: 6em;
+            line-height: 1.25;
+        }
+        h2 {
+            font-size: 4.6666em;
+            line-height: 1.4;
+        }
+        h3 {
+            font-size: 3em;
+            line-height: 2;
+        }
+        h4 {
+            letter-spacing: 0.15em;
+            font-size: 1.8666em;
+            line-height: 1.3929;
+        }
+        h5 {
+            font-size: 1.4em;
+            line-height: 1.381;
+            color: #0d0d0d;
+        }
+        h6 {
+            margin: 0;
+            font-weight: 300;
+            font-size: 1.0666rem;
+            line-height: 1.375;
+            color: #0d0d0d;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        p,
+        span {
+            font-size: 1rem;
+        }
+        strong {
+            font-weight: 700;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        footer {
+            margin-top: 8vmin;
+            margin-bottom: 5px;
+            padding-right: 1vw;
+            text-align: right;
+            font-size: 0.8em;
+        }
+        section header {
+            margin: 12.5vmin 0;
+        }
+        .header-fixed {
+            width: 100%;
+            position: fixed;
+            top: 1vh;
+            left: 2.5%;
+            z-index: 2;
+        }
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+        .subtitle {
+            margin: 10px 0 0;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+        .flex {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .text-container {
+            position: relative;
+            align-items: center;
+            z-index: 1;
+        }
+        .flex-split {
+            flex: 1 1 0;
+        }
+        .about-content {
+            flex-direction: column;
+            padding: 5vh 10vw;
+        }
+        .about-content.left {
+            background-color: #0a0a0a;
+        }
+        .about-content.right {
+            align-items: flex-start;
+            background-color: #0d0d0d;
+        }
+        .text-light {
+            color: white;
+        }
+        .logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            visibility: hidden;
+        }
+        .logo.active {
+            visibility: visible;
+        }
+        .up {
+            text-transform: uppercase;
+        }
+        .hero-content {
+            width: 100%;
+            height: 100vh;
+            padding: 0 20vw;
+            background-image: url('./images/hero.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .separator-fancy {
+            position: relative;
+            width: 5px;
+            height: 1px;
+            margin: 20px;
+            padding: 0 5px;
+            border-left: 28px solid black;
+            border-right: 28px solid black;
+        }
+        .separator-fancy:after {
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            width: 5px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #5acae6 !important;
+            content: '';
+        }
+        .separator-small {
+            width: 40px;
+            height: 1px;
+            margin: 15px 0;
+            background-color: #5acae6;
+        }
+        .hiring-item {
+            margin-bottom: 8vmin;
+        }
+        .hiring-item-left {
+            margin-right: 2.5vw;
+        }
+        .contained {
+            margin: 0 auto;
+            width: 780px;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+        .bgletter {
+            visibility: hidden;
+            font-size: 1.9em;
+            color: #5acae6;
+            opacity: 0.2;
+            position: absolute;
+            z-index: -1;
+        }
+        .map-content {
+            height: 400px;
+        }
+        .contact-details {
+            justify-content: flex-start;
+        }
+        .contact-details-item {
+            padding: 1vh;
+            flex-basis: 100%;
+            box-sizing: border-box;
+        }
+        @media only screen and (orientation:portrait), (max-width: 800px) {
+            .contained {
+                max-width: 100%;
+                padding: 0 4%;
+            }
+            .flex {
+                flex-direction: column;
+            }
+            .flex-split {
+                flex: 1 1 auto;
+            }
+            .hero-content {
+                font-size: 2vmin;
+            }
+            .hiring-item-left {
+                margin-right: 0;
+            }
+            section header {
+                margin: 8vmin 0;
+            }
+            .contained {
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixed">
+        <a href="#" class="logo active"><img class="responsive-image" src="images/logo-light.png" alt="Ambernetas logo" /></a>
+        <a href="#" class="logo logo-dark"><img class="responsive-image" src="images/logo-dark.png" alt="Ambernetas logo" /></a>
+    </header>
+    <section id="intro" class="hero-content flex">
+        <h1 class="text-light">Software development at its best!</h1>
+    </section>
+    <section id="about" class="flex text-light">
+        <div class="about-content left flex flex-split">
+            <h2 class="text-container flex text-light">
+                <div>About</div>
+                <div class="bgletter">A</div>
+            </h2>
+        </div>
+        <div class="about-content right flex flex-split">
+            <p><strong>Ambernetas is software technology company.</strong></p>
+            <p>We provide solutions that keep our customers one step ahead of their competition. In optimising for efficiency, the goal posts are constantly being moved. There will always be parts of an operation that can be performed more efficiently - or automated altogether. At Ambernetas, we aim to provide solutions and services that are of such high quality that they turn our customers' business and administrative processes into competitive advantages. That means offering world-leading solutions today, as well as tapping into the opportunities tomorrow's technology offers.</p>
+            <p>Accelerate your impact on the world by solving enterprise-level challenges around the globe. Join us as we transform the way people work.</p>
+        </div>
+    </section>
+    <section id="hiring" class="contained">
+        <header>
+            <h2 class="text-container flex">
+                <div>We Need You</div>
+                <div class="bgletter">W</div>
+            </h2>
+            <div class="separator-fancy"></div>
+            <h5 class="subtitle up">if you are</h5>
+        </header>
+        <article class="hiring-item flex">
+            <div class="hiring-item-left flex-split">
+                <img class="responsive-image" src="./images/proga.jpg" alt="Position image" />
+            </div>
+            <div class="flex-split">
+                <h4 class="up">Front-end developer</h4>
+                <div class="separator-small"></div>
+                <div>
+                    <h6>Full time</h6>
+                    <p>We’re are pursuing for bright & ambitious Teammates with a genuine interest in Front-end development. Our team works on a dynamic Betting Software. We create unique single-page JS applications and work with AngularJS, WebSockets, SSE, gulp & LESS. But! We aren’t latched onto them, and so we are always open for new technologies & suggestions.</p>
+                </div>
+            </div>
+        </article>
+        <article class="hiring-item flex">
+            <div class="hiring-item-left flex-split">
+                <img class="responsive-image" src="./images/proga.jpg" alt="Position image" />
+            </div>
+            <div class="flex-split">
+                <h4 class="up">Back-end developer</h4>
+                <div class="separator-small"></div>
+                <div>
+                    <h6>Full time</h6>
+                    <p>Our Back-end Dev Team is pursuing for responsible & initiative Teammates with strong analytical skills and a genuine interest in the Back-end development of our Betting Software. Your responsibilities will include creation of software design for Sports Betting, Payment Gateways integration & Risk Management. We're working with Google's programming language Go.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="map" class="map-content"></section>
+    <section id="contact" class="contacts contained">
+        <header>
+            <h3 class="text-container flex">
+                <div>Contact</div>
+                <div class="bgletter">C</div>
+            </h3>
+            <div class="separator-fancy"></div>
+            <h6 class="subtitle up">get in touch with us</h6>
+        </header>
+        <article class="contact-details flex">
+            <span class="contact-details-item"><strong>Address:</strong> K. Petrausko g. 26-318, LT-44156 Kaunas</span>
+            <span class="contact-details-item"><strong>E-mail:</strong> <a href="mailto:info@ambernet.lt">info@ambernet.lt</a></span>
+            <span class="contact-details-item"><strong>Phone:</strong> <a href="tel:+37061033099">+370 610 33099</a></span>
+            <span class="contact-details-item"><strong>Legal entity code:</strong> 300005694</span>
+            <span class="contact-details-item"><strong>VAT code:</strong> LT100003480718</span>
+            <span class="contact-details-item"><strong>Bank:</strong> "Swedbank", AB</span>
+            <span class="contact-details-item"><strong>Bank account number:</strong> LT377300010082951462</span>
+        </article>
+    </section>
+    <footer>Copyright &copy; <span id="date" style="font-size: inherit;"></span> by <strong>Ambernetas</strong>. Made with Love.</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.3.4/scrollreveal.min.js"></script>
+    <script>
+    'use strict';
+        window.addEventListener('DOMContentLoaded', function() {
+            (function() {
+                function throttle (callback, limit) {
+                    var wait = false;
+                    return function () {
+                        if (!wait) {
+                            callback.call();
+                            wait = true;
+                            setTimeout(function () {
+                                wait = false;
+                            }, limit);
+                        }
+                    }
+                }
+                var hiringBlock = document.getElementById('hiring');
+                var logos = document.getElementsByClassName('logo');
+                var hiringOffset = hiringBlock.offsetTop - logos[0].clientHeight;
+                var activeLogo = 0;
+                window.addEventListener('resize', function (event) {
+                    hiringOffset = hiringBlock.offsetTop - logos[0].clientHeight;
+                    initMap();
+                })
+
+                var debouncedLogoCheck = throttle(function (event) {
+                    var target = window.pageYOffset >= hiringOffset;
+                    if (target != activeLogo) {
+                        activeLogo = target;
+                        for (var i = 0; i < logos.length; i++) {
+                            logos[i].classList.toggle('active');
+                        }
+                    }
+                }, 100);
+
+                window.addEventListener('scroll', debouncedLogoCheck);
+            }());
+            window.sr = ScrollReveal({ reset: true, delay: 100, viewFactor: 0.8, scale: 1.1, distance: '-1rem' });
+            sr.reveal('.bgletter');
+
+            document.getElementById('date').innerText = new Date().getFullYear();
+        });
+
+        var initMap = function mapInitialization () {
+            var latlng = new google.maps.LatLng(54.906026, 23.931475);
+            var options = {
+                zoom: 14,
+                center: latlng,
+                scrollwheel: false,
+                scaleControl: false,
+                disableDefaultUI: false,
+                styles: [{featureType:"landscape",stylers:[{saturation:-100},{lightness:65},{visibility:"on"}]},{featureType:"poi",stylers:[{saturation:-100},{lightness:51},{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"road.arterial",stylers:[{saturation:-100},{lightness:30},{visibility:"on"}]},{featureType:"road.local",stylers:[{saturation:-100},{lightness:40},{visibility:"on"}]},{featureType:"transit",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"administrative.province",stylers:[{visibility:"off"}]},{featureType:"administrative.locality",stylers:[{visibility:"off"}]},{featureType:"administrative.neighborhood",stylers:[{visibility:"on"}]},{featureType:"water",elementType:"labels",stylers:[{visibility:"on"},{lightness:-25},{saturation:-100}]},{featureType:"water",elementType:"geometry",stylers:[{hue:"#ffff00"},{lightness:-25},{saturation:-97}]}],
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), options);
+            var image = "./images/logo-map.jpg";
+            var marker = new google.maps.Marker({
+                map: map, 
+                icon: image,
+                position: map.getCenter()
+            });
+            var contentString = "K. Petrausko g. 26 / +370 610 33099";
+            var infowindow = new google.maps.InfoWindow({ content: contentString });
+
+            google.maps.event.addListener(marker, "click", function() {
+                infowindow.open(map,marker);
+            });
+        }
+    </script>
+    <script async defer type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyASE2N1b_tYCeQQ8TpRuEfxWJ9BMUEgUbE&callback=initMap"></script>
+</body>
+</html>
+</doctype>
